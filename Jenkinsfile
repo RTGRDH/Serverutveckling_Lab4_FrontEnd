@@ -1,14 +1,16 @@
 pipeline{
     agent{
-        none
+        docker{
+            image 'node:6-alpine'
+            args '-p 3000:3000 --name front'
+        }
     }
 
     stages{
         stage('Build'){
             steps{
-                ah 'npm run clean'
+                sh 'npm clean'
                 sh 'npm install'
-                sh 'npm run build'
             }
         }
     }
