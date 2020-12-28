@@ -5,6 +5,7 @@ node{
         checkout scm
     }
     stage('Build image'){
+        echo 'Building image..'
         app = docker.build(frontend)
     }
     stage('Test image'){
