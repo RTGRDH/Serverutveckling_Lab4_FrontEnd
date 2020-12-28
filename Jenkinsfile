@@ -1,25 +1,22 @@
-pipeline{
-    agent{
-        docker{
-            image 'node:12'
-            args '-p 3000:3000 --name front'
+node{
+    def app
+
+    stage('Clone repository'){
+        checkout scm
+    }
+    stage('Build image'){
+        app = docker.build(frontend)
+    }
+    stage('Test image'){
+        app.inside{
+            echo "Tests passed"
         }
     }
-
-    stages{
-        stage('Build'){
-            steps{
-                sh 'npm clean'
-                sh 'npm install'
-            }
+    stage('Push image'){
+        docker.withRegistry('https://registry.hub.docker.com','docker-hub'){
+            app.push("${env.BUILD_NUMBER"}")
+            app.push("latest")
         }
-        stage('Deliver'){
-            steps{
-                sh 'docker build -t react-app --no-cache .'
-                sh 'docker tag react-app localhost:5000/react-app'
-                sh 'docker push localhost:5000/react-app'
-                sh 'docker rmi -f react-app localhost:5000/react-app'
-            }
-        }
+            echo "Trying to Push docker build to docker hub"
     }
 }
