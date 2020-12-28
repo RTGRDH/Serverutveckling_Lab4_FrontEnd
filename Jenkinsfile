@@ -6,7 +6,7 @@ node{
     }
     stage('Build image'){
         echo 'Building image..'
-        app = docker.build(frontend)
+        app = docker.build(rtgrdh/frontend)
     }
     stage('Test image'){
         app.inside{
