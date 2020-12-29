@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Build'){
             steps{
-                sh 'npm install'
+                sh 'npm install joi'
                 sh '<<Build Command>>'
             }
         }
