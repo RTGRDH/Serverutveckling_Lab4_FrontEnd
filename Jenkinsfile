@@ -3,7 +3,6 @@ pipeline {
         app = ''
     }
     agent any
-    tools {nodejs "latest"}
     stages{
         stage('Clone repository')
         {
