@@ -2,7 +2,6 @@ pipeline {
     agent any
     environment{
         app = ''
-        CI = 'true'
     }
     stages{
         stage('Clone repository')
