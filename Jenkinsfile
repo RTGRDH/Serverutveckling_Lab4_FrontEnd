@@ -3,7 +3,6 @@ pipeline {
         app = ''
     }
     agent any
-    tools {nodejs "node"}
     stages{
         stage('Clone repository') {
                 /* Cloning the Repository to our Workspace */
@@ -14,11 +13,6 @@ pipeline {
         stage('Build'){
             steps{
                 sh 'npm install joi'
-            }
-        }
-        stage('Test'){
-            steps{
-                sh 'node test'
             }
         }
         stage('Build image') {
