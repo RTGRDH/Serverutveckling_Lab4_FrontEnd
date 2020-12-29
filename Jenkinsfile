@@ -7,8 +7,9 @@ pipeline {
     stages{
         stage('Clone repository') {
                 /* Cloning the Repository to our Workspace */
-
-                checkout scm
+                steps{
+                    checkout scm
+                }
         }
         stage('Build'){
             steps{
