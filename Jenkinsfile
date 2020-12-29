@@ -3,6 +3,9 @@ pipeline {
         app = ''
     }
     agent any
+    environment{
+        CI = 'true'
+    }
     stages{
         stage('Clone repository')
         {
@@ -24,7 +27,7 @@ pipeline {
         {
             steps
             {
-                sh 'npm test'
+                sh './jenkins/scripts/tests.sh'
             }
         }
         stage('Build image')
