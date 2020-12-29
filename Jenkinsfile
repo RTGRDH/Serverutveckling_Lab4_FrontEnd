@@ -1,5 +1,12 @@
 pipeline {
-    agent any
+    agent
+    {
+        docker
+        {
+            image 'node12:'
+            args '-p3000:3000'
+        }
+    }
     environment{
         app = ''
         CI = 'true'
