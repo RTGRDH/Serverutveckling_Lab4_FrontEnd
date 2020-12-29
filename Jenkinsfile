@@ -1,9 +1,7 @@
 pipeline {
-    environment{
-        app = ''
-    }
     agent any
     environment{
+        app = ''
         CI = 'true'
     }
     stages{
