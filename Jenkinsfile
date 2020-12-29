@@ -23,7 +23,10 @@ pipeline {
         }
         stage('Test')
         {
-            sh 'npm test'
+            steps
+            {
+                sh 'npm test'
+            }
         }
         stage('Build image')
         {
