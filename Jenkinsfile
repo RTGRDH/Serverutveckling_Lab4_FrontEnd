@@ -9,7 +9,6 @@ pipeline {
             /* Cloning the Repository to our Workspace */
             steps
             {
-
                 checkout scm
             }
         }
@@ -18,13 +17,6 @@ pipeline {
             steps
             {
                 sh 'npm install joi'
-            }
-        }
-        stage('Test')
-        {
-            steps
-            {
-                sh './jenkins/scripts/tests.sh'
             }
         }
         stage('Build image')
