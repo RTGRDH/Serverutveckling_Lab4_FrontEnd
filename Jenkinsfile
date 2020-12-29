@@ -35,4 +35,6 @@ node {
             }
                 echo "Trying to Push Docker Build to DockerHub"
     }
+    stage('Remove Unused docker image') {
+        sh "docker rmi $registry:$BUILD_NUMBER"
 }
