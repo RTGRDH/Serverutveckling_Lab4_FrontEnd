@@ -3,7 +3,7 @@ pipeline {
     {
         docker
         {
-            image 'node12:'
+            image 'node:12'
             args '-p3000:3000'
         }
     }
