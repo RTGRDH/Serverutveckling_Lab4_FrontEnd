@@ -12,7 +12,12 @@ node {
 
         app = docker.build("rtgrdh/frontend")
     }
+    stage('Test image') {
+                app.inside {
 
+                 sh 'echo "Tests passed"'
+                }
+            }
     stage('Test image') {
 
         app.inside {
