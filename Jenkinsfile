@@ -26,7 +26,7 @@ pipeline {
             {
                 script
                 {
-                    app = docker.build("rtgrdh/frontend")
+                    app = docker.build("rtgrdh/frontend-dev")
                 }
             }
         }
@@ -48,5 +48,4 @@ pipeline {
             }
         }
     }
-
 }
