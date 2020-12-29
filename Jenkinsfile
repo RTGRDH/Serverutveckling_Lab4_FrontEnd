@@ -3,6 +3,7 @@ pipeline {
         app = ''
     }
     agent any
+    tools {nodejs "latest"}
     stages{
         stage('Clone repository')
         {
@@ -19,6 +20,10 @@ pipeline {
             {
                 sh 'npm install joi'
             }
+        }
+        stage('Test')
+        {
+            sh 'npm test'
         }
         stage('Build image')
         {
