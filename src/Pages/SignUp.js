@@ -1,18 +1,17 @@
-/*
- All types of forms such as login, sign up, create a log and send message is using code from following link:
-www.cluemediator.com/login-app-create-login-form-in-reactjs-using-secure-rest-api
-*/
-import '../Styles/Login.css'
-import SignUp from "./SignUp";
 import React, { useState } from 'react';
-import { BrowserRouter, Switch, Route, NavLink, Link } from 'react-router-dom';
-function Login(props) {
+import {BrowserRouter, NavLink, Route, Switch, Link} from "react-router-dom";
+import Login from "./Login";
+import '../Styles/SignUp.css'
+function SignUp(props) {
     const username = useFormInput('');
     const password = useFormInput('');
     const [error] = useState(null);
+    const [loading] = useState(false);
 
     // handle button click of login form
-    const handleLogin = async () => {
+    const handleSignUp = async () => {
+        //props.history.push('/dashboard');
+        //let response = await fetch; //Getting data
         let myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
@@ -24,18 +23,10 @@ function Login(props) {
             redirect: 'follow'
         };
 
-        await fetch("http://localhost:6969/login", requestOptions)
+        fetch("http://localhost:6969/addUser", requestOptions)
             .then(response => {
                 console.log(response)
-                if(response.ok)
-                {
-                    sessionStorage.setItem('currentUser', ''+username.value+'');
-                    props.history.push('/dashboard');
-                }
-                else
-                {
-                    alert("User not found.")
-                }
+                props.history.push('/login')
             })
             .catch(error => console.log('error', error));
     }
@@ -44,11 +35,11 @@ function Login(props) {
         <div className="container">
             <nav>
                 <Link to="/login">Login</Link>
-                <Link to="/signup">Sign Up</Link>
+                <Link  to="/signup">Sign Up</Link>
             </nav>
-            <Route path="/signup" component={SignUp} />
-            <div className="Login">
-                <h1>Login</h1>
+            <Route path="/login" component={Login} />
+            <div className="SignUp">
+                <h1>Sign Up</h1>
                 <br/>
                 <label>Username</label>
                 <br/>
@@ -58,7 +49,7 @@ function Login(props) {
                 <br/>
                 <input type="password" {...password} autoComplete="new-password" />
                 <br/>
-            <button onClick={handleLogin}>Login</button>
+                <button onClick={handleSignUp}>Sign Up</button>
             </div>
         </div>
     );
@@ -76,4 +67,4 @@ const useFormInput = initialValue => {
     }
 }
 
-export default Login;
+export default SignUp;
