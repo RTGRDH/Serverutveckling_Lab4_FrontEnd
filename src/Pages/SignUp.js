@@ -34,10 +34,10 @@ function SignUp(props) {
     return (
         <div className="container">
             <nav>
-                <Link to="/login">Login</Link>
+                <Link to="/">Login</Link>
                 <Link  to="/signup">Sign Up</Link>
             </nav>
-            <Route path="/login" component={Login} />
+            <Route exact path="/" component={Login} />
             <div className="SignUp">
                 <h1>Sign Up</h1>
                 <br/>
