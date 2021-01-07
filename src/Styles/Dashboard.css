@@ -1,0 +1,11 @@
+Table{
+    border-color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+thead{
+    color: white;
+}
+th{
+    padding: 10px;
+}
