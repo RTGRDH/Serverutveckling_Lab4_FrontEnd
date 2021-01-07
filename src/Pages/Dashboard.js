@@ -2,6 +2,7 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 import { BrowserRouter, Switch, Route, NavLink, Link } from 'react-router-dom';
 import '../Styles/Dashboard.css'
+import CreateLog from "./CreateLog";
 class Dashboard extends React.Component{
     state = {
         logs: []
@@ -12,7 +13,7 @@ class Dashboard extends React.Component{
             method: 'POST',
             redirect: 'follow'
         };
-        let url = "http://localhost:6969/getUsersLogs?currentUser=" + sessionStorage.getItem('currentUser');
+        let url = "http://localhost:6971/getUsersLogs?currentUser=" + sessionStorage.getItem('currentUser');
         fetch(url, requestOptions)
             .then(response => response.json())
             .then((data) => {
@@ -45,7 +46,9 @@ class Dashboard extends React.Component{
             <div className="container">
                 <nav>
                     <Link to="/dashboard">Dashboard</Link>
+                    <Link to="/createLog">Create a log</Link>
                 </nav>
+                <Route path={"/createLog"} component={CreateLog}/>
                 <div className = "Personliga Loggar">
                     <h3>Personal Logs</h3>
                     <Table>
