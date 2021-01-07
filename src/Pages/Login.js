@@ -43,7 +43,7 @@ function Login(props) {
     return (
         <div className="container">
             <nav>
-                <Link to="/login">Login</Link>
+                <Link to="/">Login</Link>
                 <Link to="/signup">Sign Up</Link>
             </nav>
             <Route path="/signup" component={SignUp} />
