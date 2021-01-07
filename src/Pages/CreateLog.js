@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Link, Route} from "react-router-dom";
 import Dashboard from "./Dashboard";
+import '../Styles/CreateLog.css'
 function CreateLog(props) {
     const subject = useFormInput('');
     const content = useFormInput('');
@@ -17,7 +18,7 @@ function CreateLog(props) {
             .then(response => response.text())
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
-        props.history.push('/dashboard');
+        setTimeout(() =>{props.history.push('/dashboard')},3000)
     }
 
     return (
@@ -25,10 +26,14 @@ function CreateLog(props) {
             <nav>
                 <Link to="/dashboard">Dashboard</Link>
                 <Link to="/createLog">Create a log</Link>
+                <Link to={"/otherLogs"}>Community Logs</Link>
+                <Link to={"/messages"}>Message Box</Link>
+                <Link to={"/createMessage"}>Write a message</Link>
+                <Link to={"/picture"}>Picture</Link>
             </nav>
             <Route path="/dashboard" component={Dashboard} />
-            <div className="form">
-                <h1>Login</h1>
+            <div className="Form">
+                <h1>Create a log</h1>
                 <br/>
                 <label>Title</label>
                 <br/>
@@ -38,7 +43,7 @@ function CreateLog(props) {
                 <br/>
                 <input type="textarea" {...content} autoComplete="new-password" />
                 <br/>
-                <button onClick={handleCreate}>Login</button>
+                <button onClick={handleCreate}>Create</button>
             </div>
         </div>
     );
