@@ -6,7 +6,6 @@ function CreateLog(props) {
     const toUser = useFormInput('');
     const [error] = useState(null);
 
-    // handle button click of login form
     const handleSend = async () => {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
