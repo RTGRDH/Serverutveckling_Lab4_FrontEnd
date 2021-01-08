@@ -1,9 +1,10 @@
 import React from 'react';
+import '../Styles/OtherLogs.css';
 import { Table } from 'react-bootstrap';
-import { BrowserRouter, Switch, Route, NavLink, Link } from 'react-router-dom';
-import '../Styles/Dashboard.css'
+import {Link, Route} from "react-router-dom";
 import CreateLog from "./CreateLog";
-class Dashboard extends React.Component{
+
+class otherLogs extends React.Component{
     state = {
         logs: []
     }
@@ -13,7 +14,7 @@ class Dashboard extends React.Component{
             method: 'POST',
             redirect: 'follow'
         };
-        let url = "http://localhost:6971/getUsersLogs?currentUser=" + sessionStorage.getItem('currentUser');
+        let url = "http://localhost:6971/getOtherUsersLogs?currentUser=" + sessionStorage.getItem('currentUser');
         fetch(url, requestOptions)
             .then(response => response.json())
             .then((data) => {
@@ -52,8 +53,8 @@ class Dashboard extends React.Component{
                     <Link to={"/createMessage"}>Write a message</Link>
                     <Link to={"/picture"}>Picture</Link>
                 </nav>
-                <div className = "Personliga Loggar">
-                    <h3>Personal Logs</h3>
+                <div className = "OtherLogs">
+                    <h3>Community Logs</h3>
                     <Table>
                         <thead>
                         <tr>
@@ -71,4 +72,5 @@ class Dashboard extends React.Component{
         );
     }
 }
-export default Dashboard;
+
+export default otherLogs;

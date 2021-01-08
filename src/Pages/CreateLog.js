@@ -31,7 +31,6 @@ function CreateLog(props) {
                 <Link to={"/createMessage"}>Write a message</Link>
                 <Link to={"/picture"}>Picture</Link>
             </nav>
-            <Route path="/dashboard" component={Dashboard} />
             <div className="Form">
                 <h1>Create a log</h1>
                 <br/>

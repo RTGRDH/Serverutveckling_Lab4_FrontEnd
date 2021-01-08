@@ -37,7 +37,6 @@ function SignUp(props) {
                 <Link to="/">Login</Link>
                 <Link  to="/signup">Sign Up</Link>
             </nav>
-            <Route exact path="/" component={Login} />
             <div className="SignUp">
                 <h1>Sign Up</h1>
                 <br/>
