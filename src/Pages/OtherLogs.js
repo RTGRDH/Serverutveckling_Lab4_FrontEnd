@@ -52,6 +52,7 @@ class otherLogs extends React.Component{
                     <Link to={"/messageBox"}>Message Box</Link>
                     <Link to={"/createMessage"}>Write a message</Link>
                     <Link to={"/picture"}>Picture</Link>
+                    <Link classname={"logout"} to={"/"}>Log Out</Link>
                 </nav>
                 <div className = "OtherLogs">
                     <h3>Community Logs</h3>
