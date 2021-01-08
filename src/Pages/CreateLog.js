@@ -30,6 +30,7 @@ function CreateLog(props) {
                 <Link to={"/messageBox"}>Message Box</Link>
                 <Link to={"/createMessage"}>Write a message</Link>
                 <Link to={"/picture"}>Picture</Link>
+                <Link classname={"logout"} to={"/"}>Log Out</Link>
             </nav>
             <div className="Form">
                 <h1>Create a log</h1>
