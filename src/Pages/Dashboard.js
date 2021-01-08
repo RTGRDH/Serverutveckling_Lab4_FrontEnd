@@ -51,6 +51,7 @@ class Dashboard extends React.Component{
                     <Link to={"/messageBox"}>Message Box</Link>
                     <Link to={"/createMessage"}>Write a message</Link>
                     <Link to={"/picture"}>Picture</Link>
+                    <Link to={"/"}>Log Out</Link>
                 </nav>
                 <div className = "Personliga Loggar">
                     <h3>Personal Logs</h3>
