@@ -5,6 +5,7 @@ import SignUp from "./Pages/SignUp";
 import Dashboard from "./Pages/Dashboard"
 import CreateLog from "./Pages/CreateLog"
 import OtherLogs from "./Pages/OtherLogs"
+import MessageBox from "./Pages/MessageBox";
 import React from "react";
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
                 <Route path="/dashboard" component={Dashboard}/>
                 <Route path="/createLog" component={CreateLog}/>
                 <Route path="/otherLogs" component={OtherLogs}/>
+                <Route path="/messageBox" component={MessageBox}/>
             </Switch>
         </BrowserRouter>
         </body>
