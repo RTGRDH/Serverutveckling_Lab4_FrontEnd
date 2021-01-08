@@ -1,24 +1,30 @@
 import React, { useState } from 'react';
-import {Link, Route} from "react-router-dom";
-import Dashboard from "./Dashboard";
-import '../Styles/CreateLog.css'
+import {Link} from "react-router-dom";
 function CreateLog(props) {
     const subject = useFormInput('');
     const content = useFormInput('');
+    const toUser = useFormInput('');
     const [error] = useState(null);
 
     // handle button click of login form
-    const handleCreate = async () => {
+    const handleSend = async () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({"title":subject.value,"content":content.value,"toUser":{"username":toUser.value},"fromUser":{"username":sessionStorage.getItem('currentUser')}});
+
         var requestOptions = {
             method: 'POST',
+            headers: myHeaders,
+            body: raw,
             redirect: 'follow'
         };
-        let url = "http://localhost:6971/createLog?title=" + subject.value +"&content="+ content.value + "&currentUser=" + sessionStorage.getItem('currentUser');
-        fetch(url, requestOptions)
+
+        fetch("http://localhost:6970/sendMessage", requestOptions)
             .then(response => response.text())
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
-        setTimeout(() =>{props.history.push('/dashboard')},3000)
+        props.history.push('/dashboard');
     }
 
     return (
@@ -32,7 +38,11 @@ function CreateLog(props) {
                 <Link to={"/picture"}>Picture</Link>
             </nav>
             <div className="Form">
-                <h1>Create a log</h1>
+                <h1>Write a message</h1>
+                <br/>
+                <label>To:</label>
+                <br/>
+                <input type="text" {...toUser} autoComplete="new-password" />
                 <br/>
                 <label>Title</label>
                 <br/>
@@ -42,7 +52,7 @@ function CreateLog(props) {
                 <br/>
                 <input type="textarea" {...content} autoComplete="new-password" />
                 <br/>
-                <button onClick={handleCreate}>Create</button>
+                <button onClick={handleSend}>Create</button>
             </div>
         </div>
     );
