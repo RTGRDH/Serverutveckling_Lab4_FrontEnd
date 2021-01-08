@@ -46,7 +46,6 @@ function Login(props) {
                 <Link to="/">Login</Link>
                 <Link to="/signup">Sign Up</Link>
             </nav>
-            <Route path="/signup" component={SignUp} />
             <div className="Login">
                 <h1>Login</h1>
                 <br/>
