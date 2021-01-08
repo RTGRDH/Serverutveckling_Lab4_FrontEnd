@@ -3,7 +3,7 @@ import '../Styles/MessageBox.css';
 import { Table } from 'react-bootstrap';
 import {Link} from "react-router-dom";
 
-class Messages extends React.Component{
+class MessageBox extends React.Component{
     state = {
         messages: []
     }
@@ -52,8 +52,8 @@ class Messages extends React.Component{
                     <Link to={"/createMessage"}>Write a message</Link>
                     <Link to={"/picture"}>Picture</Link>
                 </nav>
-                <div className = "messages">
-                    <h3>Your inbox</h3>
+                <div className = "Messages">
+                    <h3>Inbox</h3>
                     <Table>
                         <thead>
                         <tr>
@@ -72,4 +72,4 @@ class Messages extends React.Component{
     }
 }
 
-export default Messages;
+export default MessageBox;
