@@ -27,7 +27,7 @@ function CreateLog(props) {
                 <Link to="/dashboard">Dashboard</Link>
                 <Link to="/createLog">Create a log</Link>
                 <Link to={"/otherLogs"}>Community Logs</Link>
-                <Link to={"/messages"}>Message Box</Link>
+                <Link to={"/messageBox"}>Message Box</Link>
                 <Link to={"/createMessage"}>Write a message</Link>
                 <Link to={"/picture"}>Picture</Link>
             </nav>
