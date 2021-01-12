@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import React from "react";
 import Login from './Pages/Login';
 import SignUp from "./Pages/SignUp";
 import Dashboard from "./Pages/Dashboard"
@@ -7,7 +8,9 @@ import CreateLog from "./Pages/CreateLog"
 import OtherLogs from "./Pages/OtherLogs"
 import MessageBox from "./Pages/MessageBox";
 import CreateMessage from "./Pages/CreateMessage";
-import React from "react";
+import Picture from "./Pages/Picture";
+import Test from "./Pages/Test";
+import CommunityFiles from "./Pages/CommunityFiles"
 function App() {
   return (
     <div className="App">
@@ -21,6 +24,9 @@ function App() {
                 <Route path="/otherLogs" component={OtherLogs}/>
                 <Route path="/messageBox" component={MessageBox}/>
                 <Route path="/createMessage" component={CreateMessage}/>
+                <Route path="/picture" component={Picture}/>
+                <Route path={"/test"} component={Test}/>
+                <Route path={"/communityFiles"} component={CommunityFiles}/>
             </Switch>
         </BrowserRouter>
         </body>
