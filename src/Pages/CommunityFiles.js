@@ -47,7 +47,7 @@ class CommunityFiles extends React.Component{
                     <Link to={"/otherLogs"}>Community Logs</Link>
                     <Link to={"/messageBox"}>Message Box</Link>
                     <Link to={"/createMessage"}>Write a message</Link>
-                    <Link to={"/communityFiles"}>Files</Link>
+                    <Link to={"/communityFiles"}>Community Files</Link>
                     <Link classname={"logout"} to={"/"}>Log Out</Link>
                 </nav>
                 <h2>Community Files</h2>

@@ -50,7 +50,7 @@ class otherLogs extends React.Component{
                     <Link to={"/otherLogs"}>Community Logs</Link>
                     <Link to={"/messageBox"}>Message Box</Link>
                     <Link to={"/createMessage"}>Write a message</Link>
-                    <Link to={"/picture"}>Picture</Link>
+                    <Link to={"/communityFiles"}>Community Files</Link>
                     <Link classname={"logout"} to={"/"}>Log Out</Link>
                 </nav>
                 <div className = "OtherLogs">
