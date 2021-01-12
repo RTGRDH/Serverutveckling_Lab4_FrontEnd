@@ -34,7 +34,6 @@ function CreateLog(props) {
                 <Link to={"/otherLogs"}>Community Logs</Link>
                 <Link to={"/messageBox"}>Message Box</Link>
                 <Link to={"/createMessage"}>Write a message</Link>
-                <Link to={"/picture"}>Picture</Link>
                 <Link to={"/communityFiles"}>Files</Link>
                 <Link classname={"logout"} to={"/"}>Log Out</Link>
             </nav>

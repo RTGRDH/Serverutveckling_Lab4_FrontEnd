@@ -8,8 +8,6 @@ import CreateLog from "./Pages/CreateLog"
 import OtherLogs from "./Pages/OtherLogs"
 import MessageBox from "./Pages/MessageBox";
 import CreateMessage from "./Pages/CreateMessage";
-import Picture from "./Pages/Picture";
-import Test from "./Pages/Test";
 import CommunityFiles from "./Pages/CommunityFiles"
 function App() {
   return (
@@ -24,8 +22,6 @@ function App() {
                 <Route path="/otherLogs" component={OtherLogs}/>
                 <Route path="/messageBox" component={MessageBox}/>
                 <Route path="/createMessage" component={CreateMessage}/>
-                <Route path="/picture" component={Picture}/>
-                <Route path={"/test"} component={Test}/>
                 <Route path={"/communityFiles"} component={CommunityFiles}/>
             </Switch>
         </BrowserRouter>

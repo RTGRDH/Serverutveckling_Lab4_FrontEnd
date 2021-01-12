@@ -2,7 +2,6 @@ import React from 'react';
 import '../Styles/OtherLogs.css';
 import { Table } from 'react-bootstrap';
 import {Link, Route} from "react-router-dom";
-import CreateLog from "./CreateLog";
 
 class otherLogs extends React.Component{
     state = {
@@ -52,7 +51,6 @@ class otherLogs extends React.Component{
                     <Link to={"/messageBox"}>Message Box</Link>
                     <Link to={"/createMessage"}>Write a message</Link>
                     <Link to={"/picture"}>Picture</Link>
-                    <Link to={"/communityFiles"}>Files</Link>
                     <Link classname={"logout"} to={"/"}>Log Out</Link>
                 </nav>
                 <div className = "OtherLogs">

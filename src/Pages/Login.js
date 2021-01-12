@@ -3,7 +3,6 @@
 www.cluemediator.com/login-app-create-login-form-in-reactjs-using-secure-rest-api
 */
 import '../Styles/Login.css'
-import SignUp from "./SignUp";
 import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route, NavLink, Link } from 'react-router-dom';
 function Login(props) {
