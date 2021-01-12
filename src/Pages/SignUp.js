@@ -26,7 +26,7 @@ function SignUp(props) {
         fetch("http://localhost:6969/addUser", requestOptions)
             .then(response => {
                 console.log(response)
-                props.history.push('/login')
+                props.history.push('/')
             })
             .catch(error => console.log('error', error));
     }

@@ -1,11 +1,11 @@
 import React from 'react';
-import '../Styles/MessageBox.css';
+import '../Styles/OtherLogs.css';
 import { Table } from 'react-bootstrap';
-import {Link} from "react-router-dom";
+import {Link, Route} from "react-router-dom";
 
-class MessageBox extends React.Component{
+class CommunityFiles extends React.Component{
     state = {
-        messages: []
+        files:[]
     }
 
     componentWillMount() {
@@ -13,31 +13,28 @@ class MessageBox extends React.Component{
             method: 'GET',
             redirect: 'follow'
         };
-        let url = "http://localhost:6970/getMessages?currentUser=" + sessionStorage.getItem('currentUser');
+        let url = "http://localhost:9001/getAll?currentUser=" + sessionStorage.getItem('currentUser');
         fetch(url, requestOptions)
             .then(response => response.json())
             .then((data) => {
                 this.setState({
-                    messages: data
+                    files: data
                 })
-                console.log(this.state.messages);
+                console.log(this.state.files);
             })
             .catch(error => console.log('error', error));
     }
 
     render()
     {
-        let messages = this.state.messages.map((msg) => {
+        let files = this.state.files.map((files) => {
             return (
-                <tr key={msg.id}>
+                <tr key={files.user}>
                     <td>
-                        {msg.title}
+                        {files.user}
                     </td>
                     <td>
-                        {msg.content}
-                    </td>
-                    <td>
-                        {msg.fromUser.username}
+                        {files.files}
                     </td>
                 </tr>
             )
@@ -54,24 +51,21 @@ class MessageBox extends React.Component{
                     <Link to={"/communityFiles"}>Files</Link>
                     <Link classname={"logout"} to={"/"}>Log Out</Link>
                 </nav>
-                <div className = "Messages">
-                    <h3>Inbox</h3>
-                    <Table>
-                        <thead>
-                        <tr>
-                            <th>Titel</th>
-                            <th>Innehåll</th>
-                            <th>Avsändare</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {messages}
-                        </tbody>
-                    </Table>
-                </div>
+                <h2>Community Files</h2>
+                <Table>
+                    <thead>
+                    <tr>
+                        <th>Användare</th>
+                        <th>Filnamn</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {files}
+                    </tbody>
+                </Table>
             </div>
         );
     }
 }
 
-export default MessageBox;
+export default CommunityFiles;
