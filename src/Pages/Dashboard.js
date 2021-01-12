@@ -1,12 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Table } from 'react-bootstrap';
 import { BrowserRouter, Switch, Route, NavLink, Link } from 'react-router-dom';
 import '../Styles/Dashboard.css'
 class Dashboard extends React.Component{
-    state = {
-        logs: []
+    constructor(props) {
+        super(props);
+        this.state = {
+            logs: [],
+            image:null,
+            currUser:""
+        }
+        this.currUser = sessionStorage.getItem('currentUser')
+        this.handleChange = this.handleChange.bind(this)
+        this.handleUpload = this.handleUpload.bind(this)
     }
-
     componentWillMount() {
         let requestOptions = {
             method: 'POST',
@@ -23,7 +30,26 @@ class Dashboard extends React.Component{
             })
             .catch(error => console.log('error', error));
     }
-
+    async handleUpload (e){
+        e.preventDefault();
+        let formData = new FormData();
+        console.log(this.state.image == null)
+        formData.append("picture", this.state.image); //a key
+        fetch("http://localhost:9001/addPicture?name=" + sessionStorage.getItem('currentUser'), {
+            method: "POST",
+            headers: {
+            },
+            body: formData
+        });
+    };
+    handleChange (e){
+        if (e.target.files.length) {
+            this.setState({
+                image: e.target.files[0]
+            })
+            console.log(this.state.image)
+        }
+    };
     render()
     {
         let logs = this.state.logs.map((log) => {
@@ -49,9 +75,8 @@ class Dashboard extends React.Component{
                     <Link to={"/otherLogs"}>Community Logs</Link>
                     <Link to={"/messageBox"}>Message Box</Link>
                     <Link to={"/createMessage"}>Write a message</Link>
-                    <Link to={"/"}>Log Out</Link>
                 </nav>
-                <div className = "Personliga Loggar">
+                <div className = "personalLogs">
                     <h3>Personal Logs</h3>
                     <Table>
                         <thead>
@@ -65,6 +90,15 @@ class Dashboard extends React.Component{
                         {logs}
                         </tbody>
                     </Table>
+                </div>
+                <div className="upload">
+                    <h1>Upload Picture</h1>
+                    <label className="custom-file-upload">
+                        <input type="file" id="actual-btn" onChange={this.handleChange}/>
+                        <i className="fa fa-cloud-upload"></i> Choose Picture
+                    </label>
+                    <br/>
+                    <button onClick={this.handleUpload}>Upload</button>
                 </div>
             </div>
         );
