@@ -2,7 +2,6 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 import { BrowserRouter, Switch, Route, NavLink, Link } from 'react-router-dom';
 import '../Styles/Dashboard.css'
-import CreateLog from "./CreateLog";
 class Dashboard extends React.Component{
     state = {
         logs: []
@@ -50,7 +49,6 @@ class Dashboard extends React.Component{
                     <Link to={"/otherLogs"}>Community Logs</Link>
                     <Link to={"/messageBox"}>Message Box</Link>
                     <Link to={"/createMessage"}>Write a message</Link>
-                    <Link to={"/picture"}>Picture</Link>
                     <Link to={"/"}>Log Out</Link>
                 </nav>
                 <div className = "Personliga Loggar">
