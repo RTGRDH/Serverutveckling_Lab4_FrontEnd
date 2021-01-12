@@ -1,7 +1,7 @@
 import React from 'react';
-import '../Styles/OtherLogs.css';
+import '../Styles/CommunityFiles.css';
 import { Table } from 'react-bootstrap';
-import {Link, Route} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 class CommunityFiles extends React.Component{
     state = {
@@ -33,9 +33,9 @@ class CommunityFiles extends React.Component{
                     <td>
                         {files.user}
                     </td>
-                    <td>
-                        {files.files}
-                    </td>
+                    {files.files.map(file =>
+                        <Link><td>{file}</td></Link>
+                    )}
                 </tr>
             )
         });
@@ -47,7 +47,6 @@ class CommunityFiles extends React.Component{
                     <Link to={"/otherLogs"}>Community Logs</Link>
                     <Link to={"/messageBox"}>Message Box</Link>
                     <Link to={"/createMessage"}>Write a message</Link>
-                    <Link to={"/picture"}>Picture</Link>
                     <Link to={"/communityFiles"}>Files</Link>
                     <Link classname={"logout"} to={"/"}>Log Out</Link>
                 </nav>
@@ -59,7 +58,7 @@ class CommunityFiles extends React.Component{
                         <th>Filnamn</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody className={"communityFiles"}>
                     {files}
                     </tbody>
                 </Table>

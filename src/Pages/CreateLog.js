@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {Link, Route} from "react-router-dom";
-import Dashboard from "./Dashboard";
 import '../Styles/CreateLog.css'
 function CreateLog(props) {
     const subject = useFormInput('');
@@ -29,7 +28,6 @@ function CreateLog(props) {
                 <Link to={"/otherLogs"}>Community Logs</Link>
                 <Link to={"/messageBox"}>Message Box</Link>
                 <Link to={"/createMessage"}>Write a message</Link>
-                <Link to={"/picture"}>Picture</Link>
                 <Link to={"/communityFiles"}>Files</Link>
                 <Link classname={"logout"} to={"/"}>Log Out</Link>
             </nav>
