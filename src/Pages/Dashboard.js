@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Table } from 'react-bootstrap';
-import { BrowserRouter, Switch, Route, NavLink, Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import '../Styles/Dashboard.css'
 class Dashboard extends React.Component{
     constructor(props) {
@@ -41,6 +41,9 @@ class Dashboard extends React.Component{
             },
             body: formData
         });
+        this.setState({
+            image:null
+        })
     };
     handleChange (e){
         if (e.target.files.length) {
@@ -94,10 +97,10 @@ class Dashboard extends React.Component{
                     </Table>
                 </div>
                 <div className="upload">
-                    <h1>Upload Picture</h1>
+                    <h1>Upload file</h1>
                     <label className="custom-file-upload">
                         <input type="file" id="actual-btn" onChange={this.handleChange}/>
-                        <i className="fa fa-cloud-upload"></i> Choose Picture
+                        <i className="fa fa-cloud-upload"></i> Select File
                     </label>
                     <br/>
                     <button onClick={this.handleUpload}>Upload</button>

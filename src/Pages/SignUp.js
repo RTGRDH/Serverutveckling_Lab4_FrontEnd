@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {BrowserRouter, NavLink, Route, Switch, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import '../Styles/SignUp.css'
 function SignUp(props) {
     const username = useFormInput('');

@@ -4,7 +4,7 @@ www.cluemediator.com/login-app-create-login-form-in-reactjs-using-secure-rest-ap
 */
 import '../Styles/Login.css'
 import React, { useState } from 'react';
-import { BrowserRouter, Switch, Route, NavLink, Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 function Login(props) {
     const username = useFormInput('');
     const password = useFormInput('');

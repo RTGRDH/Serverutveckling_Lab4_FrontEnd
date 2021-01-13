@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {Link} from "react-router-dom";
+import "../Styles/CreateMessage.css";
 function CreateLog(props) {
     const subject = useFormInput('');
     const content = useFormInput('');
@@ -52,7 +53,7 @@ function CreateLog(props) {
                 <br/>
                 <input type="textarea" {...content} autoComplete="new-password" />
                 <br/>
-                <button onClick={handleSend}>Create</button>
+                <button onClick={handleSend}>Send</button>
             </div>
         </div>
     );
