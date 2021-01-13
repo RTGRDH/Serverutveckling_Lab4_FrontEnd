@@ -23,7 +23,7 @@ function Login(props) {
             redirect: 'follow'
         };
 
-        await fetch("http://user-backend:8001/login", requestOptions)
+        await fetch("http://user-backend:8002/login", requestOptions)
             .then(response => {
                 console.log(response)
                 if(response.ok)
