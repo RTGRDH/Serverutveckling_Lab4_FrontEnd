@@ -26,7 +26,7 @@ pipeline {
             {
                 script
                 {
-                    app = docker.build("rtgrdh/frontend-product")
+                    app = docker.build("rtgrdh/frontend-dev")
                 }
             }
         }
